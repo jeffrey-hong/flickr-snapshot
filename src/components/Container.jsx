@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import Gallery from './Gallery';
-import SearchButton from './SearchButton';
 import { api, api_key } from '../api'
 
 class Container extends Component {
@@ -14,7 +13,13 @@ class Container extends Component {
     const api_call = api + `api_key=${api_key}&tags=${tag}&format=json&nojsoncallback=1`
     return fetch(api_call)
       .then((res) => res.json())
-      .then((resolved) => { this.setState({ photos: (resolved && resolved.photos) ? resolved.photos.photo : null }) });
+      .then((resolved) => { 
+        this.setState({ 
+          photos: (resolved && resolved.photos) 
+                  ? resolved.photos.photo 
+                  : null
+          }) 
+      });
   }
 
   searchWordOnChange = (event) => {
@@ -35,8 +40,8 @@ class Container extends Component {
        <SearchBar 
         searchWord={this.state.searchWord} 
         searchWordOnChange={this.searchWordOnChange} 
+        setSearchWord={this.setSearchWord}
        />
-       <SearchButton setSearchWord={this.setSearchWord} />
        <Gallery photos={this.state.photos} />
       </div>
     );
