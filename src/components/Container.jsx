@@ -19,7 +19,6 @@ class Container extends Component {
 
   searchWordOnChange = (event) => {
     this.setState({ searchWord: event.target.value });
-    console.log(this.state.searchWord);
   }
 
   componentDidMount = () => {
@@ -27,7 +26,6 @@ class Container extends Component {
   }
 
   setSearchWord = () => {
-    console.log(this.state.searchWord);
     this.getPhotos(this.state.searchWord);
   }
 
