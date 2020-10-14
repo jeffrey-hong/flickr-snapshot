@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import SearchButton from './SearchButton.jsx'
 
 class SearchBar extends Component { 
   handleSearch = (searchText) => {
@@ -13,7 +12,6 @@ class SearchBar extends Component {
         <input type="text" 
                onChange={this.props.searchWordOnChange} 
         />
-        <SearchButton handleSearch={this.handleSearch} />
        </React.Fragment>
     );
   }

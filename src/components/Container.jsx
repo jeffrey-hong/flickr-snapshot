@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import Gallery from './Gallery';
-
-const api = `https://www.flickr.com/services/rest/?method=flickr.photos.search&`
-const api_key = process.env.REACT_APP_FLICKR_API_KEY 
+import SearchButton from './SearchButton';
+import { api, api_key } from '../api'
 
 class Container extends Component {
   state = {
@@ -20,10 +19,15 @@ class Container extends Component {
 
   searchWordOnChange = (event) => {
     this.setState({ searchWord: event.target.value });
-    this.getPhotos(this.state.searchWord);
+    console.log(this.state.searchWord);
   }
 
   componentDidMount = () => {
+    this.setSearchWord();
+  }
+
+  setSearchWord = () => {
+    console.log(this.state.searchWord);
     this.getPhotos(this.state.searchWord);
   }
 
@@ -34,6 +38,7 @@ class Container extends Component {
         searchWord={this.state.searchWord} 
         searchWordOnChange={this.searchWordOnChange} 
        />
+       <SearchButton setSearchWord={this.setSearchWord} />
        <Gallery photos={this.state.photos} />
       </div>
     );

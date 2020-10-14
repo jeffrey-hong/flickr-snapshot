@@ -4,7 +4,7 @@ export default class SearchButton extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.props.handleSearch}>Search</button>
+        <button onClick={this.props.setSearchWord}>Search</button>
       </div>
     )
   }
