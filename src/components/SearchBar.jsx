@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import SearchButton from './SearchButton';
 
 class SearchBar extends Component { 
-  handleSearch = (searchText) => {
-    console.log(searchText);
+  handleEnter = (e) => {
+    if (e.key === 'Enter') {
+      this.props.setSearchWord();
+    }
   }
 
   render () {
@@ -11,6 +13,7 @@ class SearchBar extends Component {
        <div className={searchBar}>
         <input type="text" 
                onChange={this.props.searchWordOnChange} 
+               onKeyUp={this.handleEnter}
         />
         <SearchButton setSearchWord={this.props.setSearchWord} />
        </div>
