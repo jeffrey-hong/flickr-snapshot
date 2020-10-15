@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export default class Gallery extends Component {
   render() {
     return (
-      <React.Fragment>
+      <div className="grid-container">
         {this.props.photos ? 
           this.props.photos.map((photo) => {
             let server = photo.server;
@@ -12,9 +12,9 @@ export default class Gallery extends Component {
             let title = photo.title;
             let src = `https://farm66.staticflickr.com/${server}/${photo_id}_${secret}_m.jpg`;
             return (
-              <div key={photo.id}>
+              <div key={photo.id} className="grid-item">
                 <div>
-                  <span className="title">{title}</span>
+                  <h2><span className="title">{title}</span></h2>
                   <img src={src} alt={title} />
                 </div>
               </div>
@@ -22,10 +22,10 @@ export default class Gallery extends Component {
           }) 
           : 
             <div>
-              <h1>nothing here yet</h1>
+              <h1>Loading Images</h1>
             </div>
         }
-      </React.Fragment>
+      </div>
     )
   }
 }

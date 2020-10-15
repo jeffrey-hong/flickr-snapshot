@@ -8,15 +8,18 @@ class SearchBar extends Component {
 
   render () {
     return (
-       <React.Fragment>
-        <label htmlFor="search">Search</label>
+       <div className={searchBar}>
         <input type="text" 
                onChange={this.props.searchWordOnChange} 
         />
         <SearchButton setSearchWord={this.props.setSearchWord} />
-       </React.Fragment>
+       </div>
     );
   }
+}
+
+const searchBar = {
+  'padding': '25px',
 }
 
 export default SearchBar;
