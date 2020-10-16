@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchButton from './SearchButton';
+import PopularTags from './PopularTags';
 
 class SearchBar extends Component { 
   handleEnter = (e) => {
@@ -16,6 +17,7 @@ class SearchBar extends Component {
                onKeyUp={this.handleEnter}
         />
         <SearchButton setSearchWord={this.props.setSearchWord} />
+        <PopularTags hotTags={this.props.hotTags} />
        </div>
     );
   }
